@@ -19,11 +19,13 @@ public class EmployeeData
 
     private static final String DATA_TYPES_READ = "src/main/resources/data/Du lieu may cham cong 1.11-sang 11.11.xlsx";
     private static final String DATA_TYPES_WRITE = "src/main/resources/data/data.txt";
+    private static int countID = 0;
 
     public static void main(String[] args) {
         Map<String, String> idAndName = new HashMap<String, String>();
         Map<String, Long> idAndTime = new HashMap<String, Long>();
         Map<String, Float> idAndDay = new HashMap<String, Float>();
+
 
         countEmployee(idAndName, idAndTime, idAndDay);
         countDays(idAndName, idAndTime, idAndDay);
@@ -58,6 +60,9 @@ public class EmployeeData
                     if (id.getCellType() == CellType.STRING && name.getCellType() == CellType.STRING) {
                         currId = id.getStringCellValue();
                         currName = name.getStringCellValue();
+                        if(currId.length() < 1 || currId.equalsIgnoreCase("ID")) {
+                            countID++;
+                        }
                     }
                     names.put(currId, currName);
                     times.put(currId , 0L);
@@ -208,20 +213,14 @@ public class EmployeeData
         try {
             FileWriter myWriter = new FileWriter(DATA_TYPES_WRITE);
 
-            myWriter.write("Sum Employee is: " + (names.size() - 2) + "\n");
-            int i = -1;
+            myWriter.write("Sum Employee is: " + (names.size() - 1 - countID) + "\n");
+            myWriter.write("ID : NAME : DAYS : TIME ĐI MUỘN TRONG THÁNG (ĐÃ TRỪ 1H/1 THÁNG)" + "\n");
             for (Map.Entry<String, String> m : names.entrySet()) {
-                i++;
-                if (i == 0) {
-                    // BỎ ĐI THÔNG TIN KHÔNG CẦN THIẾT
+                if(m.getKey().length() < 1 || m.getKey().equalsIgnoreCase("ID")) {
                     continue;
-                } else if (i == (names.size() - 1)) {
-                    // BỎ ĐI THÔNG TIN KHÔNG CẦN THIẾT
-                    break;
-                } else {
-                    // CHUYỂN TIME ĐI MUỘN THÀNH GIỜ -> MỖI THÁNG CÓ 60 PHÚT ĐI MUỘN NÊN TRỪ ĐI 1H
-                    myWriter.write(m.getKey() + " : " + m.getValue() + " : " + days.get(m.getKey()) + " : " + (((float)((times.get(m.getKey()) / 3600) - 1)) > 0 ? ((float)((times.get(m.getKey()) / 3600) - 1)) : 0 ) + "\n");
                 }
+                // CHUYỂN TIME ĐI MUỘN THÀNH GIỜ -> MỖI THÁNG CÓ 60 PHÚT ĐI MUỘN NÊN TRỪ ĐI 1H
+                myWriter.write(m.getKey() + " : " + m.getValue() + " : " + days.get(m.getKey()) + " : " + (((float)((times.get(m.getKey()) / 3600) - 1)) > 0 ? ((float)((times.get(m.getKey()) / 3600) - 1)) : 0 ) + "\n");
             }
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
