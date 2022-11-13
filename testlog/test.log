@@ -1,0 +1,8 @@
+INFO  | 2022-09-22 20:55:18 | [main] core.KeywordWeb (KeywordWeb.java:openBrowser:38) - Opening browser
+INFO  | 2022-09-22 20:55:18 | [main] bonigarcia.wdm.WebDriverManager (WebDriverManager.java:resolveDriverVersion:958) - Using chromedriver 105.0.5195.52 (resolved driver for Chrome 105)
+INFO  | 2022-09-22 20:55:19 | [main] bonigarcia.wdm.WebDriverManager (WebDriverManager.java:exportDriver:1013) - Exporting webdriver.chrome.driver as C:\Users\hoavd\.cache\selenium\chromedriver\win32\105.0.5195.52\chromedriver.exe
+INFO  | 2022-09-22 20:55:20 | [main] core.KeywordWeb (KeywordWeb.java:openBrowser:55) - open browser successfully CHORME
+INFO  | 2022-09-22 20:55:20 | [main] core.KeywordWeb (KeywordWeb.java:maximizeWindow:124) - Maximizing window...
+INFO  | 2022-09-22 20:55:20 | [main] core.KeywordWeb (KeywordWeb.java:openUrl:62) - Go to URL: https://demoqa.com/nestedframes
+INFO  | 2022-09-22 20:55:20 | [main] core.KeywordWeb (KeywordWeb.java:openUrl:63) - url: [Ljava.lang.String;@72e789cb
+INFO  | 2022-09-22 20:56:13 | [main] core.KeywordWeb (KeywordWeb.java:switchToFrame:173) - switchToFrame
