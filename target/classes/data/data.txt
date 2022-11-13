@@ -1,4 +1,4 @@
-Sum Employee is: 205
+Sum Employee is: 204
 ID : NAME : DAYS : TIME ĐI MUỘN TRONG THÁNG (ĐÃ TRỪ 1H/1 THÁNG)
 NTC802 : PHẠM HỮU THẮNG  : 0.0 : 0.0
 NTC801 : PHẠM VĂN NGUYÊN : 6.5 : 4.0

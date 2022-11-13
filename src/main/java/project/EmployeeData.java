@@ -220,7 +220,8 @@ public class EmployeeData
                     continue;
                 }
                 // CHUYỂN TIME ĐI MUỘN THÀNH GIỜ -> MỖI THÁNG CÓ 60 PHÚT ĐI MUỘN NÊN TRỪ ĐI 1H
-                myWriter.write(m.getKey() + " : " + m.getValue() + " : " + days.get(m.getKey()) + " : " + (((float)((times.get(m.getKey()) / 3600) - 1)) > 0 ? ((float)((times.get(m.getKey()) / 3600) - 1)) : 0 ) + "\n");
+                float countTime = ((float)times.get(m.getKey()) / 3600 ) - 1F;
+                myWriter.write(m.getKey() + " : " + m.getValue() + " : " + days.get(m.getKey()) + " : " + ( countTime > 0 ? countTime : 0 ) + "\n");
             }
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
