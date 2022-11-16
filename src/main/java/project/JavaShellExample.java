@@ -47,7 +47,7 @@ public class JavaShellExample {
         if (isWindows()) {
             // Install ChromeDriver
             try {
-                FileWriter myWriter = new FileWriter("src/main/resources/windows/install.bat");
+                FileWriter myWriter = new FileWriter("src/main/resources/windows/BatFolder/install.bat");
                 myWriter.write("curl https://chromedriver.storage.googleapis.com/" + getVersionChromeDriverLocal() + "/chromedriver_win32.zip --output " + pathChromeDriverZip + "\\DriverChrome.zip --ssl-no-revoke");
                 myWriter.close();
                 System.out.println("Successfully wrote to the file.");
@@ -56,7 +56,7 @@ public class JavaShellExample {
                 e.printStackTrace();
             }
             try{
-                Process p = Runtime.getRuntime().exec("src/main/resources/windows/install.bat");
+                Process p = Runtime.getRuntime().exec("src/main/resources/windows/BatFolder/install.bat");
                 p.waitFor();
                 System.out.println("Install ChromeDriver success");
             }catch( IOException ex ){
@@ -68,7 +68,7 @@ public class JavaShellExample {
         if (isWindows()) {
             // Unzip chromedriver
             try {
-                FileWriter myWriter = new FileWriter("src/main/resources/windows/unzip.bat");
+                FileWriter myWriter = new FileWriter("src/main/resources/windows/BatFolder/unzip.bat");
                 myWriter.write("powershell expand-archive " + pathChromeDriverZip + "\\DriverChrome.zip " + pathChromeDriverZip +"\\DriverChrome -Force");
                 myWriter.close();
                 System.out.println("Successfully wrote to the file.");
@@ -77,7 +77,7 @@ public class JavaShellExample {
                 e.printStackTrace();
             }
             try{
-                Process p = Runtime.getRuntime().exec("src/main/resources/windows/unzip.bat");
+                Process p = Runtime.getRuntime().exec("src/main/resources/windows/BatFolder/unzip.bat");
                 p.waitFor();
                 System.out.println("Unzip ChromeDriver success");
             }catch( IOException ex ){

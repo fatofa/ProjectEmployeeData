@@ -1,1 +1,0 @@
-curl https://chromedriver.storage.googleapis.com/107.0.5304.62/chromedriver_win32.zip --output F:\ProjectEmployeeData\src\main\resources\windows\DriverChrome.zip --ssl-no-revoke
